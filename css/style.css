@@ -31,11 +31,12 @@ body > script {
 }
 
 
-#weekly-tasks {
+#weekly-tasks, #metric-converter {
     background-color: white;
     padding: 30px;
     border-radius: 25px;
     box-shadow: 0 25px 10px rgba(0, 0, 0, 0.43);
+    margin: 30px;
 }
 
 
@@ -46,7 +47,7 @@ form {
 }
 
 
-form input {
+form input, select {
     width: 100%;
     padding: 12px 15px;
     border: 2px solid #868a8d;
@@ -63,7 +64,7 @@ form input:focus {
 }
 
 
-#goal-btn {
+#goal-btn, #calculate {
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
@@ -86,7 +87,7 @@ form input:focus {
 }
 
 
-#goal-message {
+#goal-message, #converter-output {
     margin-top: 20px;
     padding: 12px;
     border-radius: 8px;

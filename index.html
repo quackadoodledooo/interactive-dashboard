@@ -20,14 +20,34 @@
          <div class="col" id="weekly-tasks">
             <script src="js/task-manager.js" defer></script>
             <form>
-                <input name="Name" id="name" type="text"/>
-                <input name="Daily Task Goal" id="dailyGoal" type="number"/>
-                <input name="Weekly Bonus Tasks" id="bonusTasks" type="number"/>
+                <input name="Name" id="name" type="text" placeholder="Name"/>
+                <input name="Daily Task Goal" id="dailyGoal" type="number" placeholder="Daily Task goal"/>
+                <input name="Weekly Bonus Tasks" id="bonusTasks" type="number" placeholder="Weekly Bonus Tasks"/>
                 <button id="goal-btn" type="submit">Goal Button</button>
             </form>
             <p id="goal-message"></p>
             
 
+         </div>
+         <div class="col" id="metric-converter">
+            <script src="js/metric-converter.js" defer></script>
+            <form>
+                <label for="convert">Enter a value to convert</label>
+                <input name="Value to Convert" id="convert" type="text" placeholder="10">
+                <label for="convert-type">Choose a conversion:</label>
+                <select id="convert-type" name="conversion">
+                    <option value="in to cm">Inches to Centimeters</option>
+                    <option value="ft to cm">Feet to Centimeters</option>
+                    <option value="yd to m">Yards to Meters</option>
+                    <option value="mi to km">Miles to Kilometer</option>
+                    <option value="cm to in">Centimeters to Inches</option>
+                    <option value="cm to ft">Centimeters to Feet</option>
+                    <option value="m to yd">Meters to Yards</option>
+                    <option value="km to mi">Kilometers to Miles</option>
+                </select>
+                <button type="button" id="calculate">Calculate</button>
+            </form>
+            <p id="converter-output"></p>
          </div>
     </div>
 </div>
