@@ -14,44 +14,44 @@
 
  ### Logic and Pseudocode 
 BEGIN Converter
-DISPLAY “Select which operation you would like to do:” 
-DISPLAY “1. Inch to centimeter”
-DISPLAY “2. Foot to centimeter” 
-DISPLAY “3. Yard to meter” 
-DISPLAY “4. Mile to kilometer” 
-DISPLAY “5. Centimeter to inch” 
-DISPLAY “6. Centimeter to feet”
-DISPLAY “7. Meter to yard” 
-DISPLAY “8. Kilometer to mile” 
-INPUT choice 
-
-DISPLAY "Enter the numeric value to convert:" 
-INPUT inputValue 
-
-IF choice = 1 THEN
-        SET result TO inputValue * 2.54
-        DISPLAY inputValue + " inches is " + result + " centimeters."
-    ELSE IF choice = 2 THEN
-        SET result TO inputValue * 30.48
-        DISPLAY inputValue + " feet is " + result + " centimeters."
-    ELSE IF choice = 3 THEN
-        SET result TO inputValue * 0.91
-        DISPLAY inputValue + " yards is " + result + " meters."
-    ELSE IF choice = 4 THEN
-        SET result TO inputValue * 1.61
-        DISPLAY inputValue + " miles is " + result + " kilometers."
-    ELSE IF choice = 5 THEN
-        SET result TO inputValue * 0.39
-        DISPLAY inputValue + " centimeters is " + result + " inches."
-    ELSE IF choice = 6 THEN
-        SET result TO inputValue * 0.0328
-        DISPLAY inputValue + " centimeters is " + result + " feet."
-    ELSE IF choice = 7 THEN
-        SET result TO inputValue * 1.09
-        DISPLAY inputValue + " meters is " + result + " yards."
-    ELSE IF choice = 8 THEN
-        SET result TO inputValue * 0.62
-        DISPLAY inputValue + " kilometers is " + result + " miles."
-    ELSE DISPLAY "Error: Invalid choice selected." 
-	END IF
+	DISPLAY “Select which operation you would like to do:” 
+	DISPLAY “1. Inch to centimeter”
+	DISPLAY “2. Foot to centimeter” 
+	DISPLAY “3. Yard to meter” 
+	DISPLAY “4. Mile to kilometer” 
+	DISPLAY “5. Centimeter to inch” 
+	DISPLAY “6. Centimeter to feet”
+	DISPLAY “7. Meter to yard” 
+	DISPLAY “8. Kilometer to mile” 
+	INPUT choice 
+	
+	DISPLAY "Enter the numeric value to convert:" 
+	INPUT inputValue 
+	
+	IF choice = 1 THEN
+	        SET result TO inputValue * 2.54
+	        DISPLAY inputValue + " inches is " + result + " centimeters."
+	    ELSE IF choice = 2 THEN
+	        SET result TO inputValue * 30.48
+	        DISPLAY inputValue + " feet is " + result + " centimeters."
+	    ELSE IF choice = 3 THEN
+	        SET result TO inputValue * 0.91
+	        DISPLAY inputValue + " yards is " + result + " meters."
+	    ELSE IF choice = 4 THEN
+	        SET result TO inputValue * 1.61
+	        DISPLAY inputValue + " miles is " + result + " kilometers."
+	    ELSE IF choice = 5 THEN
+	        SET result TO inputValue * 0.39
+	        DISPLAY inputValue + " centimeters is " + result + " inches."
+	    ELSE IF choice = 6 THEN
+	        SET result TO inputValue * 0.0328
+	        DISPLAY inputValue + " centimeters is " + result + " feet."
+	    ELSE IF choice = 7 THEN
+	        SET result TO inputValue * 1.09
+	        DISPLAY inputValue + " meters is " + result + " yards."
+	    ELSE IF choice = 8 THEN
+	        SET result TO inputValue * 0.62
+	        DISPLAY inputValue + " kilometers is " + result + " miles."
+	    ELSE DISPLAY "Error: Invalid choice selected." 
+		END IF
 END Converter
