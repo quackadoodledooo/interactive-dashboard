@@ -55,3 +55,6 @@
 		    ELSE DISPLAY "Error: Invalid choice selected." 
 			END IF
 	END Converter
+
+ ## Magic 8 Ball
+ This app answers any questions you ask it! Type a question in the box then click the 8 ball to recieve an answer. 
