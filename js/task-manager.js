@@ -1,3 +1,5 @@
+let myTasks = [];
+
 function weeklyGoal(userName, dailyGoal, bonusTasks) {
     //calculate weekly and total goals
     let weeklyGoal = dailyGoal * 5;
@@ -11,6 +13,22 @@ function weeklyGoal(userName, dailyGoal, bonusTasks) {
     //send output to output box
     document.getElementById("goal-message").innerHTML = output;
 }
+
+newList = document.createElement("ul");
+newList.id="user-tasks";
+document.getElementById("task-list").append(newList);
+
+addTask = document.getElementById("add-task");
+taskInput = document.getElementById("task-name")
+addTask.addEventListener("click", function(event) {
+    event.preventDefault();
+    const taskText = taskInput.value.trim();
+    myTasks.push(taskText);
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    newList.appendChild(li);
+    taskInput.value = "";
+})
 
 document.getElementById("goal-btn").addEventListener("click", function(event) {
     //stop the form from submitting(reloading the page)
