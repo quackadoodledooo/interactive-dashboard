@@ -1,44 +1,112 @@
 let myTasks = [];
+let nextID = 1;
 
-function weeklyGoal(userName, dailyGoal, bonusTasks) {
-    //calculate weekly and total goals
-    let weeklyGoal = dailyGoal * 5;
-    let totalGoal = weeklyGoal + bonusTasks;
-
-    //format output
-    let output = "Hello " + userName +
-                 "! Weekly Goal: " + weeklyGoal + 
-                 " | Total Goal: " + totalGoal;
-
-    //send output to output box
-    document.getElementById("goal-message").innerHTML = output;
+function logAllTasks() {
+    console.log(JSON.stringify(myTasks));
 }
 
-newList = document.createElement("ul");
-newList.id="user-tasks";
-document.getElementById("task-list").append(newList);
+function styleTasks(task, taskNode) {
+    const textNode = taskNode.querySelector(".task-text");
 
-addTask = document.getElementById("add-task");
-taskInput = document.getElementById("task-name")
-addTask.addEventListener("click", function(event) {
+    if (task.isImportant) {
+        taskNode.style.color = "white";
+        taskNode.style.backgroundColor = "#000000";
+        taskNode.style.fontWeight = "bold";
+    } else {
+        taskNode.style.color = "";
+        taskNode.style.backgroundColor = "";
+        taskNode.style.fontWeight = "bold";
+    }
+
+    if (task.isCompleted) {
+        textNode.style.textDecoration = "line-through";
+    } else {
+        textNode.style.textDecoration = "none";
+    }
+}
+
+function addTask(taskName, taskPriority, important) {
+    const task = {
+        id: nextID,
+        name: taskName,
+        priority: taskPriority,
+        isImportant: important,
+        isCompleted: false
+    };
+    myTasks.push(task);
+    nextID++;
+
+    const taskList = document.getElementById("task-list");
+
+    const taskNode = document.createElement("div");
+    taskNode.id = "task-" + task.id;
+
+    taskNode.className = "task-item priority-" + task.priority.toLowerCase();
+
+    const textNode = document.createElement("span");
+    textNode.className = "task-text";
+    textNode.textContent =
+        task.name +
+        " | Priority: " + task.priority +
+        " | Important: " + (task.isImportant ? "Yes" : "No");
+
+    const completeBtn = document.createElement("button");
+    completeBtn.type = "button";
+    completeBtn.textContent = "Complete";
+    completeBtn.addEventListener("click", function () {
+        completeTask(task.id);
+    });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", function () {
+        deleteTask(task.id);
+    });
+
+    taskNode.append(textNode, completeBtn, deleteBtn);
+    styleTasks(task, taskNode);
+    taskList.append(taskNode);
+
+    logAllTasks();
+}
+
+function completeTask(id) {
+    const task = myTasks.find(function (t) { return t.id === id; });
+    if (!task) return;
+
+    task.isCompleted = !task.isCompleted;
+    styleTasks(task, document.getElementById("task-" + id));
+    logAllTasks();
+}
+
+function deleteTask(id) {
+    myTasks = myTasks.filter(function (t) { return t.id !== id; });
+    document.getElementById("task-" + id).remove();
+    logAllTasks();
+}
+
+function deleteTaskList() {
+    myTasks = [];
+    document.getElementById("task-list").innerHTML = "";
+    logAllTasks();
+}
+document.getElementById("task-form").addEventListener("submit", function (event) {
     event.preventDefault();
-    const taskText = taskInput.value.trim();
-    myTasks.push(taskText);
-    const li = document.createElement("li");
-    li.textContent = taskText;
-    newList.appendChild(li);
-    taskInput.value = "";
-})
 
-document.getElementById("goal-btn").addEventListener("click", function(event) {
-    //stop the form from submitting(reloading the page)
-    event.preventDefault();
+    const nameInput = document.getElementById("name");
+    const taskName = nameInput.value.trim();
+    if (taskName === "") return;
 
-    //retrieve values from HTML form
-    let userName = document.getElementById("name").value;
-    let dailyGoal = Number(document.getElementById("dailyGoal").value);
-    let bonusTasks = Number(document.getElementById("bonusTasks").value);
+    addTask(
+        taskName,
+        document.getElementById("priority").value,
+        document.getElementById("is-important").checked
+    );
 
-    //use those values to calculate totals and output them
-    weeklyGoal(userName, dailyGoal, bonusTasks);
+    nameInput.value = "";
+    document.getElementById("is-important").checked = false;
+    nameInput.focus();
 });
+
+document.getElementById("delete-tasks").addEventListener("click", deleteTaskList);

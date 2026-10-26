@@ -17,25 +17,27 @@
     <div class="container">
     <div class="row">
         <!-- Dashboard Content -->
-         <div class="col" id="weekly-tasks">
+         <div class="col" id="weekly-tasks">    
             <script src="js/task-manager.js" defer></script>
-            <form>
-                <input name="Name" id="name" type="text" placeholder="Name"/>
-                <input name="Daily Task Goal" id="dailyGoal" type="number" placeholder="Daily Task goal"/>
-                <input name="Weekly Bonus Tasks" id="bonusTasks" type="number" placeholder="Weekly Bonus Tasks"/>
-                <button id="goal-btn" type="submit">Goal Button</button>
+            <h2>Task Manager</h2>
+            <form id="task-form">
+                <label for="name">Task Name: </label>
+                <input name="Name" id="name" type="text" placeholder="Task Name" required/>
+                <label for="priority">Task Priority: </label>
+                <select id="priority" name="Priority">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <div id="important">
+                    <label for="is-important">Is the task important?</label>
+                    <input id="is-important" type="checkbox">
+                </div>
+                <button id="add-tasks" type="submit">Add Task</button>
+                <button id="delete-tasks" type="button">Delete All Tasks</button>
+                <div id="task-list"></div>
             </form>
-            <p id="goal-message"></p>
-            <div id="task-list"> 
-                <h3>Weekly Task List</h3> 
-                <p>Enter a task below to manage your goals.</p> 
-                <form> 
-                    <label for="task-name">Enter task:</label> 
-                    <input type="text" id="task-name" name="task-name"> 
-                    <button type="submit" id="add-task">Add Task</button> 
-                </form> 
-            </div>
-
+        
          </div>
 
          <!-- Metric Converter -->

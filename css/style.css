@@ -63,8 +63,44 @@ form input:focus {
     box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
 }
 
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+  outline: none;
+}
 
-#goal-btn, #calculate {
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #555;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #402777;
+  border-color: #522777;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+}
+
+#important{
+    display: flex;
+    gap: 1rem;
+}
+
+#goal-btn,  button {
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
@@ -95,4 +131,46 @@ form input:focus {
     color: #495057;
     text-align: center;
     font-weight: 500;
+}
+
+#delete-tasks {
+    background-color: #970000;
+}
+
+#add-tasks {
+    background-color: #1f9c00;
+}
+
+#task-list {
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-left-width: 6px;
+    border-radius: 8px;
+}
+
+.task-text {
+    flex: 1 1 200px;
+}
+
+.task-item button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+.priority-high   { border-left-color: darkorange; }
+.priority-medium { border-left-color: goldenrod; }
+.priority-low    { border-left-color: seagreen; }
+
+@media (max-width: 768px) {
+    .container { max-width: 100%; }
+    #weekly-tasks, #metric-converter { margin: 15px 0; padding: 20px; }
 }
