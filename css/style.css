@@ -26,6 +26,8 @@ body > script {
 
 
 .container {
+    display: flex;
+    flex-wrap: wrap;
     max-width: 90%;
     margin: 40px auto;
 }
@@ -173,4 +175,8 @@ input[type="checkbox"]:checked::after {
 @media (max-width: 768px) {
     .container { max-width: 100%; }
     #weekly-tasks, #metric-converter { margin: 15px 0; padding: 20px; }
+}
+
+#magic-eight-ball, #metric-converter, #weekly-tasks {
+    width:33%;
 }

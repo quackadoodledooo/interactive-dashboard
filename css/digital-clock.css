@@ -1,0 +1,21 @@
+#digital-clock {
+    flex-basis: 100%;
+    text-align: center;
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 33%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: 100px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.43);
+}
+#calendar-date {
+    font-size: 50px;
+}
